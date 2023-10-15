@@ -1,13 +1,17 @@
 package ru.skypro.homework.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Data
-@AllArgsConstructor
+
 public class Ads {
     private int count;
-    private ArrayList<Ad> results;
+    private List<Ad> results;
+
+    public Ads(List<Ad> results) {
+        this.count = results.size();
+        this.results = results;
+    }
 }
