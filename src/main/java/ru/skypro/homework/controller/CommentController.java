@@ -1,13 +1,11 @@
 package ru.skypro.homework.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import ru.skypro.homework.dto.*;
-import ru.skypro.homework.service.CommentService;
+import ru.skypro.homework.entity.Comment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +20,7 @@ public class CommentController {
     @GetMapping("/{id}/comments")
     public Comments getComments(Authentication authentication, @PathVariable int id) {
         var CommentListList = List.of(
-                new Comment(2, "Avatar", "Ivan", 100000, 10, "Слишком дёшево")
+                new Comment(1, "Avatar", "Ivan", 100000, 10, "Слишком дёшево")
         );
         return new Comments((ArrayList<Comment>) CommentListList);
 //        return commentService.getComments(authentication, id);

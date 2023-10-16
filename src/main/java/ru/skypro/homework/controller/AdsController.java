@@ -5,12 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.skypro.homework.dto.Ad;
+import ru.skypro.homework.entity.Ad;
 import ru.skypro.homework.dto.Ads;
 import ru.skypro.homework.dto.CreateOrUpdateAd;
-import ru.skypro.homework.service.AdService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin("http://localhost:3000")
