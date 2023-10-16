@@ -32,9 +32,13 @@ public class User {
     private String image;
 
     @OneToMany
+//            (mappedBy = "user")
+//    @JoinColumn(name = "id", nullable=false)
     private Set<Ad> ads;
 
     @OneToMany
+//    @JoinColumn(name = "id", nullable=false)
+//            (mappedBy = "user")
     private Set<Comment> comments;
 
 }

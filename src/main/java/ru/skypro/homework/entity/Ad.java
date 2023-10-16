@@ -31,4 +31,6 @@ public class Ad {
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
     private User user;
+
+
 }
