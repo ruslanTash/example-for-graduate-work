@@ -23,7 +23,7 @@ import ru.skypro.homework.service.UserService;
 public class UsersController {
     private UserService userService;
 
-    //    Обновление пароля
+    //   Обновление пароля
     @PostMapping("/set_password")
     public ResponseEntity<?> setPassword(Authentication authentication, @RequestBody NewPassword newPassword) {
        return userService.setPassword(authentication, newPassword);
