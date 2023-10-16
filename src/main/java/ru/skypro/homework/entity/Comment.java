@@ -1,23 +1,29 @@
 package ru.skypro.homework.entity;
 
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Comment {
-    private Integer author;
+    @Id
+    private int pk;
     private String authorImage;
     private String authorFirstName;
     private long createdAt;
-
-    @Id
-    private int pk;
+    @Size(min = 8, max = 64)
     private String text;
+
+    @Column(name = "author_id")
+    private Integer author;
+
+    @ManyToOne
+    @JoinColumn(name="id", nullable=false)
+    private User user;
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.skypro.homework.dto.CommentDTO.Comments;
 import ru.skypro.homework.dto.CommentDTO.CreateOrUpdateComment;
 import ru.skypro.homework.entity.Comment;
+import ru.skypro.homework.service.CommentService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +21,8 @@ public class CommentController {
 
     @GetMapping("/{id}/comments")
     public Comments getComments(Authentication authentication, @PathVariable int id) {
-        var CommentListList = List.of(
-                new Comment(1, "Avatar", "Ivan", 100000, 10, "Слишком дёшево")
-        );
-        return new Comments((ArrayList<Comment>) CommentListList);
 //        return commentService.getComments(authentication, id);
+        return null;
     }
 
     @PostMapping("/{id}/comments")
