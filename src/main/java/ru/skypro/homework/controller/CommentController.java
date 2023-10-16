@@ -4,7 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import ru.skypro.homework.dto.*;
+import ru.skypro.homework.dto.CommentDTO.Comments;
+import ru.skypro.homework.dto.CommentDTO.CreateOrUpdateComment;
 import ru.skypro.homework.entity.Comment;
 
 import java.util.ArrayList;
