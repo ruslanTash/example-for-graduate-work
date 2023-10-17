@@ -6,8 +6,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.entity.Ad;
-import ru.skypro.homework.dto.Ads;
-import ru.skypro.homework.dto.CreateOrUpdateAd;
+import ru.skypro.homework.dto.AdDTO.Ads;
+import ru.skypro.homework.dto.AdDTO.CreateOrUpdateAd;
 
 import java.util.List;
 
@@ -24,10 +24,7 @@ public class AdsController {
         ad.setPk(1);
         ad.setPrice(100);
         ad.setTitle("Sale");
-        ad.setAuthor(1);
         return new Ads(List.of(ad));
-
-//        return new Ads(List.of());
     }
 
     //Удаление объявления
@@ -50,7 +47,6 @@ public class AdsController {
         ad.setPk(1);
         ad.setPrice(100);
         ad.setTitle("Sale");
-        ad.setAuthor(1);
         return new Ads(List.of(ad));
     }
 
