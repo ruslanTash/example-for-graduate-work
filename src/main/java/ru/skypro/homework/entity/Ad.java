@@ -25,11 +25,8 @@ public class Ad {
     @Size(min = 8, max = 64)
     private String description;
 
-    @Column(name = "author_id")
-    private Integer author;
-
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "author_id", nullable = false)
     private User user;
 
 

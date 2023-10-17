@@ -13,17 +13,15 @@ import javax.persistence.*;
 @Entity
 public class Comment {
     @Id
-    private int pk;
+    private Integer pk;
     private String authorImage;
     private String authorFirstName;
     private long createdAt;
     @Size(min = 8, max = 64)
     private String text;
 
-    @Column(name = "author_id")
-    private Integer author;
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=false)
+    @JoinColumn(name = "author_id", nullable = false)
     private User user;
 }

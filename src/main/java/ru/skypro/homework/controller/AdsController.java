@@ -24,10 +24,7 @@ public class AdsController {
         ad.setPk(1);
         ad.setPrice(100);
         ad.setTitle("Sale");
-        ad.setAuthor(1);
         return new Ads(List.of(ad));
-
-//        return new Ads(List.of());
     }
 
     //Удаление объявления
@@ -50,7 +47,6 @@ public class AdsController {
         ad.setPk(1);
         ad.setPrice(100);
         ad.setTitle("Sale");
-        ad.setAuthor(1);
         return new Ads(List.of(ad));
     }
 
