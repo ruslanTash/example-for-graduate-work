@@ -7,6 +7,7 @@ import ru.skypro.homework.dto.AdDTO.AdDTO;
 import ru.skypro.homework.dto.AdDTO.Ads;
 import ru.skypro.homework.dto.AdDTO.CreateOrUpdateAd;
 import ru.skypro.homework.dto.AdDTO.ExtendedAd;
+import ru.skypro.homework.dto.Login;
 import ru.skypro.homework.entity.Ad;
 
 
@@ -36,12 +37,25 @@ public class AdMapper {
         ad.setDescription(createOrUpdateAd.getDescription());
         return ad;
     }
-    public CreateOrUpdateAd  reateOrUpdateAdFromAd(Ad ad){
+    public CreateOrUpdateAd  CreateOrUpdateAdFromAd(Ad ad){
         CreateOrUpdateAd createOrUpdateAd = new CreateOrUpdateAd();
         createOrUpdateAd.setTitle(ad.getTitle());
         createOrUpdateAd.setPrice(ad.getPrice());
         createOrUpdateAd.setDescription(ad.getDescription());
         return createOrUpdateAd;
+    }
+    public ExtendedAd AdFromExtendedAd(Ad ad){
+        ExtendedAd extendedAd = new ExtendedAd();
+        extendedAd.setPk(ad.getPk());
+        extendedAd.setAuthorFirstName(ad.getUser().getFirstName());
+        extendedAd.setAuthorFirstName(ad.getUser().getLastName());
+        extendedAd.setDescription(ad.getDescription());
+        extendedAd.setLogin(new Login().getUsername());
+        extendedAd.setImage(ad.getImage());
+        extendedAd.setPhone(ad.getUser().getPhone());
+        extendedAd.setPrice(ad.getPrice());
+        extendedAd.setTitle(ad.getTitle());
+        return extendedAd;
     }
 
 }
