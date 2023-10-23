@@ -2,13 +2,20 @@ package ru.skypro.homework.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
+import ru.skypro.homework.dto.Register;
+import ru.skypro.homework.dto.SecurityUserDetails;
 import ru.skypro.homework.dto.UserDTO.NewPassword;
 import ru.skypro.homework.dto.UserDTO.UpdateUser;
+import ru.skypro.homework.dto.UserDTO.UserDTO;
 import ru.skypro.homework.entity.User;
+import ru.skypro.homework.mapper.UserMapper;
+import ru.skypro.homework.repository.UserRepository;
 import ru.skypro.homework.service.UserService;
 
 @Slf4j
@@ -18,6 +25,8 @@ import ru.skypro.homework.service.UserService;
 @RequiredArgsConstructor
 public class UsersController {
     private UserService userService;
+    private UserMapper userMapper;
+    private UserRepository userRepository;
 
     //   Обновление пароля
     @PostMapping("/set_password")
@@ -28,13 +37,16 @@ public class UsersController {
 
     //    Получение информации об авторизованном пользователе
     @GetMapping("/me")
-    public User getProfile(Authentication authentication) {
-        User user = new User();
-        user.setFirstName("Test");
-        user.setLastName("Test");
-        user.setPhone("79879008833");
-        user.setId(1);
-        return user;
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    public User getProfile(Authentication authentication) throws Exception{
+//        User user = new User();
+//        user.setFirstName("Name");
+//        user.setLastName("Test");
+//        user.setPhone("79879000000");
+//        user.setId(1);
+//        return user;
+
+        return userRepository.findById(1).orElseThrow();
 //        return userService.getProfile(authentication);
     }
 
@@ -42,8 +54,8 @@ public class UsersController {
     @PatchMapping("/me")
     public UpdateUser updateUser(Authentication authentication,
                                         @RequestBody UpdateUser updateUser) {
-//        return userService.updateUser(authentication, updateUser);
-        return new UpdateUser("Test", "Test", "+79279008833");
+        SecurityUserDetails securityUserDetails = (SecurityUserDetails) authentication.getDetails();
+        return userService.updateUser(authentication, updateUser);
     }
 
     //    Обновление аватара авторизованного пользователя
