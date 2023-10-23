@@ -24,4 +24,8 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "ad_id", nullable = false)
+    private Ad ad;
 }
