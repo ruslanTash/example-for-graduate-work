@@ -2,7 +2,6 @@ package ru.skypro.homework.service.impl;
 
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-//import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;

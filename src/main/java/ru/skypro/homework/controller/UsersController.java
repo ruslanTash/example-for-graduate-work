@@ -43,8 +43,8 @@ public class UsersController {
 //        user.setId(1);
 //        return user;
 
-        return userRepository.findById(1).orElseThrow();
-//        return userService.getProfile(authentication);
+//        return userRepository.findById(1).orElseThrow();
+        return userService.getProfile(authentication);
     }
 
     //    Обновление информации об авторизованном пользователе

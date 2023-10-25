@@ -22,7 +22,7 @@ public class AdsController {
     public Ads getAds(Authentication authentication){
         Ad ad = new Ad();
         ad.setPk(1);
-        ad.setPrice(100);
+        ad.setPrice(22000);
         ad.setTitle("Sale");
         return new Ads(List.of(ad));
     }
