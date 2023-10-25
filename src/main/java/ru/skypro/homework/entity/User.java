@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
     @Id
     @Column(name = "id")
@@ -32,6 +32,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
     private String image;
+    private boolean present;
+
 
 
 }

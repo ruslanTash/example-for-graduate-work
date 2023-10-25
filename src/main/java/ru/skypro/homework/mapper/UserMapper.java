@@ -1,5 +1,6 @@
 package ru.skypro.homework.mapper;
 
+import org.springframework.stereotype.Service;
 import  ru.skypro.homework.dto.Login;
 import ru.skypro.homework.dto.Register;
 import ru.skypro.homework.dto.UserDTO.NewPassword;
@@ -7,6 +8,7 @@ import ru.skypro.homework.dto.UserDTO.UpdateUser;
 import ru.skypro.homework.dto.UserDTO.UserDTO;
 import ru.skypro.homework.entity.User;
 
+@Service
 public class UserMapper {
 
 

@@ -1,25 +1,31 @@
-package ru.skypro.homework.dto;
+package ru.skypro.homework.config;
 
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+import ru.skypro.homework.dto.Role;
 
 import java.util.Collection;
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class SecurityUserDetails implements UserDetails {
+    @Getter
     private final Integer userId;
     private final String userPassword;
     private final Role userRole;
     private final String userName;
 
-    public SecurityUserDetails(Integer userId, String userPassword, Role userRole, String userName) {
-        this.userId = userId;
-        this.userPassword = userPassword;
-        this.userRole = userRole;
-        this.userName = userName;
-    }
+//    public SecurityUserDetails(Integer userId, String userPassword, Role userRole, String userName) {
+//        this.userId = userId;
+//        this.userPassword = userPassword;
+//        this.userRole = userRole;
+//        this.userName = userName;
+//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -34,10 +40,6 @@ public class SecurityUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return this.userName;
-    }
-
-    public Integer getUserId() {
-        return this.userId;
     }
 
     @Override

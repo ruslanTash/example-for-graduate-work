@@ -1,14 +1,17 @@
-package ru.skypro.homework.service;
+package ru.skypro.homework.config;
 
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import ru.skypro.homework.dto.SecurityUserDetails;
+import org.springframework.stereotype.Service;
+import ru.skypro.homework.config.SecurityUserDetails;
 import ru.skypro.homework.entity.User;
 import ru.skypro.homework.repository.UserRepository;
 
 @RequiredArgsConstructor
+@Service
 public class SecurityService implements UserDetailsService {
     private final UserRepository userRepository;
     @Override
