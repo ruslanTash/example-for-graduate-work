@@ -1,13 +1,14 @@
-package ru.skypro.homework.dto;
+package ru.skypro.homework.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.skypro.homework.dto.auth.Role;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class UserDTO {
     private Integer id;
     private String email;
     private String firstName;
@@ -15,4 +16,5 @@ public class User {
     private String phone;
     private Role role;
     private String image;
+
 }

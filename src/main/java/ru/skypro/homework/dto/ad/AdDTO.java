@@ -1,15 +1,14 @@
-package ru.skypro.homework.dto;
-import lombok.AllArgsConstructor;
+package ru.skypro.homework.dto.ad;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Ad {
+public class AdDTO {
     private Integer author;
     private String image;
     private Integer pk;
     private int price;
     private String title;
 }
+
