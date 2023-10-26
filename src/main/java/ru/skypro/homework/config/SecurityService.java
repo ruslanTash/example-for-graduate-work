@@ -16,18 +16,19 @@ public class SecurityService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.getUserByEmail(username);
+        User user = userRepository.getUserByEmail(username).orElseThrow(RuntimeException::new);
         return new SecurityUserDetails(user);
     }
 
     public boolean userExists(String username) {
         User userNotExists = new User();
-        User users = userRepository.getUserByEmail(username);
+        User users = userRepository.getUserByEmail(username).orElse(userNotExists);;
         return !userNotExists.equals(users);
     }
 
     public void createUser(Register register, String password) {
         User user = new User();
+        user.setId(user.getId());
         user.setPassword(password);
         user.setPhone(register.getPhone());
         user.setEmail(register.getUsername());

@@ -1,37 +1,42 @@
 package ru.skypro.homework.config;
 
 
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
 import ru.skypro.homework.entity.User;
 
 import java.util.Collection;
 import java.util.List;
 
-@Service("userDetailsService")
+
 @RequiredArgsConstructor
 @Getter
-public class SecurityUserDetails implements UserDetails {
-    private final User user;
 
+public class SecurityUserDetails implements UserDetails {
+    private User user;
+
+
+    public SecurityUserDetails(User user) {
+        this.user = user;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + this.user.getRole().name()));
+        return List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
     }
 
     @Override
     public String getPassword() {
-        return this.user.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.user.getEmail();
+        return user.getEmail();
     }
 
     @Override

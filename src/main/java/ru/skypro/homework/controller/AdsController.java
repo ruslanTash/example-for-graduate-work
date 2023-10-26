@@ -43,11 +43,12 @@ public class AdsController {
     //Получение объявлений авторизованного пользователя
     @GetMapping("/me")
     public Ads getAdMe(){
-        Ad ad = new Ad();
-        ad.setPk(1);
-        ad.setPrice(100);
-        ad.setTitle("Sale");
-        return new Ads(List.of(ad));
+//        Ad ad = new Ad();
+//        ad.setPk(1);
+//        ad.setPrice(100);
+//        ad.setTitle("Sale");
+//        return new Ads(List.of(ad));
+        return null;
     }
 
 //    Обновление картинки объявления

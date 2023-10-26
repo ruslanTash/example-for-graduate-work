@@ -21,44 +21,46 @@ import ru.skypro.homework.service.UserService;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UsersController {
-    private UserService userService;
+    //    private UserService userService;
     private UserMapper userMapper;
     private UserRepository userRepository;
 
     //   Обновление пароля
     @PostMapping("/set_password")
     public ResponseEntity<?> setPassword(Authentication authentication, @RequestBody NewPassword newPassword) {
-       return userService.setPassword(authentication, newPassword);
-
+//       return userService.setPassword(authentication, newPassword);
+        return null;
     }
 
     //    Получение информации об авторизованном пользователе
     @GetMapping("/me")
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public User getProfile(Authentication authentication) throws Exception{
-//        User user = new User();
-//        user.setFirstName("Name");
-//        user.setLastName("Test");
-//        user.setPhone("79879000000");
-//        user.setId(1);
-//        return user;
+    public User getProfile(Authentication authentication) throws Exception {
+        User user = new User();
+        user.setFirstName("Name");
+        user.setLastName("Test");
+        user.setPhone("79879000000");
+        user.setId(1);
+        return user;
 
 //        return userRepository.findById(1).orElseThrow();
-        return userService.getProfile(authentication);
+//        return userService.getProfile(authentication);
     }
 
     //    Обновление информации об авторизованном пользователе
     @PatchMapping("/me")
     public UpdateUser updateUser(Authentication authentication,
-                                        @RequestBody UpdateUser updateUser) {
-        SecurityUserDetails securityUserDetails = (SecurityUserDetails) authentication.getDetails();
-        return userService.updateUser(authentication, updateUser);
+                                 @RequestBody UpdateUser updateUser) {
+//        SecurityUserDetails securityUserDetails = (SecurityUserDetails) authentication.getDetails();
+//        return userService.updateUser(authentication, updateUser);
+        return null;
     }
 
     //    Обновление аватара авторизованного пользователя
     @PatchMapping("/me/image")
     public ResponseEntity<?> updateImage(Authentication authentication,
-                                         @RequestPart (value = "photo", required = false)MultipartFile photo) {
-        return userService.updateImage(authentication, photo);
+                                         @RequestPart(value = "photo", required = false) MultipartFile photo) {
+//        return userService.updateImage(authentication, photo);
+        return null;
     }
 }

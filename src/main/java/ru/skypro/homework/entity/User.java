@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String email;
     @Size(min = 8, max = 16)
@@ -30,8 +30,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
     private String image;
-
-
 
 
 }
