@@ -6,17 +6,16 @@ import ru.skypro.homework.entity.Comment;
 
 public class CommentMapper {
 
-    public Comment commentFromCommentDTO(CommentDTO commentDTO) {
+    public Comment fromCommentDTO(CommentDTO commentDTO) {
         Comment comment = new Comment();
         comment.setPk(commentDTO.getPk());
-//        comment.setAuthorImage(commentDTO.getAuthorImage());
-//        comment.setAuthorFirstName(commentDTO.getAuthorFirstName());
         comment.setCreatedAt(commentDTO.getCreatedAt());
         comment.setText(commentDTO.getText());
         return comment;
+
     }
 
-    public CommentDTO commentDTOFromComment(Comment comment) {
+    public CommentDTO toCommentDTO(Comment comment) {
         CommentDTO commentDTO = new CommentDTO();
         commentDTO.setPk(comment.getPk());
         commentDTO.setAuthorImage(comment.getUser().getImage());
@@ -26,12 +25,12 @@ public class CommentMapper {
         return commentDTO;
     }
 
-    public Comment commentFromCreateOrUpdateComment(CreateOrUpdateComment createOrUpdateComment) {
+    public Comment fromCreateOrUpdateComment(CreateOrUpdateComment createOrUpdateComment) {
         Comment comment = new Comment();
         comment.setText(comment.getText());
         return comment;
     }
-    public CreateOrUpdateComment createOrUpdateCommentFromComment(Comment comment){
+    public CreateOrUpdateComment toCreateOrUpdateComment(Comment comment){
         CreateOrUpdateComment createOrUpdateComment=new CreateOrUpdateComment();
         createOrUpdateComment.setText(createOrUpdateComment.getText());
         return createOrUpdateComment;

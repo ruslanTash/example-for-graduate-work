@@ -14,20 +14,12 @@ import ru.skypro.homework.service.AuthService;
 
 
 @Service
-
+@RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
 
     private final SecurityService securityService;
     private final PasswordEncoder encoder;
-    private final UserRepository userRepository;
-    private final UserMapper map;
 
-    public AuthServiceImpl(SecurityService securityService, PasswordEncoder encoder, UserRepository userRepository, UserMapper map) {
-        this.securityService = securityService;
-        this.encoder = encoder;
-        this.userRepository = userRepository;
-        this.map = map;
-    }
 
     @Override
     public boolean login(String userName, String password) {

@@ -12,7 +12,7 @@ import ru.skypro.homework.entity.User;
 public class UserMapper {
 
 
-    public User userFromUserDTO(UserDTO userDTO) {
+    public User fromUserDTO(UserDTO userDTO) {
         User user = new User();
         user.setId(userDTO.getId());
         user.setEmail(userDTO.getEmail());
@@ -24,21 +24,22 @@ public class UserMapper {
         return user;
     }
 
-    public User userFromNewPassword(NewPassword newPassword) {
+    public User fromNewPassword(NewPassword newPassword) {
         User user = new User();
         user.setPassword(newPassword.getNewPassword());
         return user;
     }
 
-    public User userFromUpdateUser(UpdateUser updateUser) {
+    public User fromUpdateUser(UpdateUser updateUser) {
         User user = new User();
         user.setFirstName(updateUser.getFirstName());
         user.setLastName(updateUser.getLastName());
+
         user.setPhone(updateUser.getPhone());
         return user;
     }
 
-    public User userFromRegister(Register register) {
+    public User fromRegister(Register register) {
         User user = new User();
         user.setEmail(register.getUsername());
         user.setPassword(register.getPassword());
@@ -49,14 +50,14 @@ public class UserMapper {
         return user;
     }
 
-    public User userFromLogin(Login login) {
+    public User fromLogin(Login login) {
         User user = new User();
         user.setEmail(login.getUsername());
         user.setPassword(login.getPassword());
         return user;
     }
 
-    public UserDTO userToUserDTO(User user) {
+    public UserDTO toUserDTO(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
         userDTO.setEmail(user.getEmail());
@@ -68,7 +69,7 @@ public class UserMapper {
         return userDTO;
     }
 
-    public NewPassword userToNewPassword(User user) {
+    public NewPassword toNewPassword(User user) {
         return new NewPassword(user.getPassword(), user.getPassword());
     }
 
@@ -80,7 +81,7 @@ public class UserMapper {
         return updateUser;
     }
 
-    public Register userToRegister(User user) {
+    public Register toRegister(User user) {
         Register register = new Register();
         register.setUsername(user.getEmail());
         register.setPassword(user.getPassword());
@@ -91,7 +92,7 @@ public class UserMapper {
         return register;
     }
 
-    public Login userToLogin(User user) {
+    public Login toLogin(User user) {
         Login login = new Login();
         login.setUsername(user.getEmail());
         login.setPassword(user.getPassword());
