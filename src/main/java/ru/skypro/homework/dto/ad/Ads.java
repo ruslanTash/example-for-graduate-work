@@ -1,4 +1,4 @@
-package ru.skypro.homework.dto.AdDTO;
+package ru.skypro.homework.dto.ad;
 
 import lombok.Data;
 import ru.skypro.homework.entity.Ad;

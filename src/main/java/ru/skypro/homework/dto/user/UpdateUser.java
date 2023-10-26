@@ -1,4 +1,4 @@
-package ru.skypro.homework.dto.UserDTO;
+package ru.skypro.homework.dto.user;
 
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;

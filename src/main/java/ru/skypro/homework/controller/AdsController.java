@@ -6,8 +6,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.homework.entity.Ad;
-import ru.skypro.homework.dto.AdDTO.Ads;
-import ru.skypro.homework.dto.AdDTO.CreateOrUpdateAd;
+import ru.skypro.homework.dto.ad.Ads;
+import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
 
 import java.util.List;
 

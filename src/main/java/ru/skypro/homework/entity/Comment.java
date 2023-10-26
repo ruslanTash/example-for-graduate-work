@@ -14,8 +14,8 @@ import javax.persistence.*;
 public class Comment {
     @Id
     private Integer pk;
-    private String authorImage;
-    private String authorFirstName;
+//    private String authorImage;
+//    private String authorFirstName;
     private long createdAt;
     @Size(min = 8, max = 64)
     private String text;

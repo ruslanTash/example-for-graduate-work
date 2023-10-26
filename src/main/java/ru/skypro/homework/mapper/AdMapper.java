@@ -1,13 +1,9 @@
 package ru.skypro.homework.mapper;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Size;
-import ru.skypro.homework.dto.AdDTO.AdDTO;
-import ru.skypro.homework.dto.AdDTO.Ads;
-import ru.skypro.homework.dto.AdDTO.CreateOrUpdateAd;
-import ru.skypro.homework.dto.AdDTO.ExtendedAd;
-import ru.skypro.homework.dto.Login;
+import ru.skypro.homework.dto.ad.AdDTO;
+import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
+import ru.skypro.homework.dto.ad.ExtendedAd;
+import ru.skypro.homework.dto.auth.Login;
 import ru.skypro.homework.entity.Ad;
 
 

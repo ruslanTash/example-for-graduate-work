@@ -1,12 +1,11 @@
 package ru.skypro.homework.config;
 
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.skypro.homework.config.SecurityUserDetails;
+import ru.skypro.homework.dto.auth.Register;
 import ru.skypro.homework.entity.User;
 import ru.skypro.homework.repository.UserRepository;
 
@@ -14,11 +13,28 @@ import ru.skypro.homework.repository.UserRepository;
 @Service
 public class SecurityService implements UserDetailsService {
     private final UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.getUserByEmail(username);
-        return new SecurityUserDetails(
-//                user.getId(),
-                user.getPassword(), user.getRole().name(), user.getEmail());
+        return new SecurityUserDetails(user);
+    }
+
+    public boolean userExists(String username) {
+        User userNotExists = new User();
+        User users = userRepository.getUserByEmail(username);
+        return !userNotExists.equals(users);
+    }
+
+    public void createUser(Register register, String password) {
+        User user = new User();
+        user.setPassword(password);
+        user.setPhone(register.getPhone());
+        user.setEmail(register.getUsername());
+        user.setFirstName(register.getFirstName());
+        user.setEmail(register.getUsername());
+        user.setLastName(register.getLastName());
+        user.setRole(register.getRole());
+        userRepository.save(user);
     }
 }

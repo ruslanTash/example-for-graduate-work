@@ -5,11 +5,9 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.skypro.homework.dto.Role;
+import ru.skypro.homework.dto.auth.Role;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
