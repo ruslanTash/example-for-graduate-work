@@ -1,4 +1,4 @@
-package ru.skypro.homework.dto.AdDTO;
+package ru.skypro.homework.dto.ad;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;

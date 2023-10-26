@@ -1,13 +1,9 @@
-package ru.skypro.homework.dto.UserDTO;
+package ru.skypro.homework.dto.user;
 
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.skypro.homework.dto.Role;
-
-import javax.persistence.*;
+import ru.skypro.homework.dto.auth.Role;
 
 @Data
 @AllArgsConstructor
