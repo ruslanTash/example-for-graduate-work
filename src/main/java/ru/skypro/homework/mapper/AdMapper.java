@@ -9,7 +9,7 @@ import ru.skypro.homework.entity.Ad;
 
 
 public class AdMapper {
-    public Ad AdFromAdDTO(AdDTO atDdo) {
+    public Ad fromAdDTO(AdDTO atDdo) {
         Ad ad = new Ad();
         ad.setImage(atDdo.getImage());
         ad.setPk(atDdo.getPk());
@@ -17,7 +17,7 @@ public class AdMapper {
         ad.setTitle(atDdo.getTitle());
         return ad;
     }
-    public AdDTO AdDTOFromAd(Ad ad){
+    public AdDTO toAdDTO(Ad ad){
         AdDTO adDTO = new AdDTO();
         adDTO.setImage(ad.getImage());
         adDTO.setPk(ad.getPk());
@@ -26,21 +26,21 @@ public class AdMapper {
         return adDTO;
     }
 
-    public Ad AdFromCreateOrUpdate(CreateOrUpdateAd createOrUpdateAd) {
+    public Ad fromCreateOrUpdate(CreateOrUpdateAd createOrUpdateAd) {
         Ad ad = new Ad();
         ad.setTitle(createOrUpdateAd.getTitle());
         ad.setPrice(createOrUpdateAd.getPrice());
         ad.setDescription(createOrUpdateAd.getDescription());
         return ad;
     }
-    public CreateOrUpdateAd  CreateOrUpdateAdFromAd(Ad ad){
+    public CreateOrUpdateAd toCreateOrUpdateAd(Ad ad){
         CreateOrUpdateAd createOrUpdateAd = new CreateOrUpdateAd();
         createOrUpdateAd.setTitle(ad.getTitle());
         createOrUpdateAd.setPrice(ad.getPrice());
         createOrUpdateAd.setDescription(ad.getDescription());
         return createOrUpdateAd;
     }
-    public ExtendedAd AdFromExtendedAd(Ad ad){
+    public ExtendedAd toExtendedAd(Ad ad){
         ExtendedAd extendedAd = new ExtendedAd();
         extendedAd.setPk(ad.getPk());
         extendedAd.setAuthorFirstName(ad.getUser().getFirstName());

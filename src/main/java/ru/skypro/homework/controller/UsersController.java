@@ -2,15 +2,13 @@ package ru.skypro.homework.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.skypro.homework.config.SecurityUserDetails;
 import ru.skypro.homework.dto.user.NewPassword;
 import ru.skypro.homework.dto.user.UpdateUser;
-import ru.skypro.homework.entity.User;
+import ru.skypro.homework.dto.user.UserDTO;
 import ru.skypro.homework.mapper.UserMapper;
 import ru.skypro.homework.repository.UserRepository;
 import ru.skypro.homework.service.UserService;
@@ -22,8 +20,9 @@ import ru.skypro.homework.service.UserService;
 @RequiredArgsConstructor
 public class UsersController {
     //    private UserService userService;
-    private UserMapper userMapper;
-    private UserRepository userRepository;
+//    private final UserMapper userMapper;
+//    private final UserRepository userRepository;
+    private final UserService userService;
 
     //   Обновление пароля
     @PostMapping("/set_password")
@@ -34,17 +33,17 @@ public class UsersController {
 
     //    Получение информации об авторизованном пользователе
     @GetMapping("/me")
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public User getProfile(Authentication authentication) throws Exception {
-        User user = new User();
-        user.setFirstName("Name");
-        user.setLastName("Test");
-        user.setPhone("79879000000");
-        user.setId(1);
-        return user;
+//    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    public UserDTO getProfile(Authentication authentication) throws Exception {
+//        User user = new User();
+//        user.setFirstName("Name");
+//        user.setLastName("Test");
+//        user.setPhone("79879000000");
+//        user.setId(1);
+//        return user;
 
 //        return userRepository.findById(1).orElseThrow();
-//        return userService.getProfile(authentication);
+        return userService.getProfile(authentication);
     }
 
     //    Обновление информации об авторизованном пользователе

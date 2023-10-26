@@ -22,7 +22,7 @@ public class SecurityService implements UserDetailsService {
 
     public boolean userExists(String username) {
         User userNotExists = new User();
-        User users = userRepository.getUserByEmail(username).orElse(userNotExists);;
+        User users = userRepository.getUserByEmail(username).orElse(userNotExists);
         return !userNotExists.equals(users);
     }
 
