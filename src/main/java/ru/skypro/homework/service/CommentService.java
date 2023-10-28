@@ -7,11 +7,13 @@ import ru.skypro.homework.dto.comment.Comments;
 import ru.skypro.homework.dto.comment.CreateOrUpdateComment;
 
 public interface CommentService {
-    Comments getComments(Authentication authentication, int id);
 
-    Comment addComment(Authentication authentication, int id, CreateOrUpdateComment createOrUpdateComment);
+    Comments getComments(Long adId);
 
-    ResponseEntity<Comment> deleteComment(Authentication authentication, int adId, int commentId);
+    void addComment(Long id, CreateOrUpdateComment createOrUpdateComment, Authentication authentication);
 
-    Comment updateComment(Authentication authentication, int adId, int commentId, CreateOrUpdateComment createOrUpdateComment);
+    void deleteComment(Long adId, Long commentId, Authentication authentication);
+
+    void updateComment(Long adId, Long commentId,CreateOrUpdateComment createOrUpdateComment, Authentication authentication);
+
 }

@@ -7,35 +7,43 @@ import org.springframework.web.bind.annotation.*;
 import ru.skypro.homework.dto.comment.Comments;
 import ru.skypro.homework.dto.comment.CreateOrUpdateComment;
 import ru.skypro.homework.entity.Comment;
+import ru.skypro.homework.service.CommentService;
 
 @RestController
 @RequestMapping("/ads")
 @RequiredArgsConstructor
 @CrossOrigin("http://localhost:3000")
 public class CommentController {
-//    private final CommentService commentService;
+    private final CommentService commentService;
 
+    //Получение комментариев объявления
     @GetMapping("/{id}/comments")
-    public Comments getComments(Authentication authentication, @PathVariable int id) {
-//        return commentService.getComments(authentication, id);
-        return null;
+    public Comments getComments(@PathVariable("id") Long adId) {
+        return commentService.getComments(adId);
     }
 
+    //Добавление комментария к объявлению
     @PostMapping("/{id}/comments")
-    public Comment addComment(Authentication authentication, @PathVariable int id, @RequestBody CreateOrUpdateComment createOrUpdateComment) {
-//        return commentService.addComment(authentication, id, createOrUpdateComment);
-        return null;
+    public void addComment(@PathVariable("id") Long adId,
+                           @RequestBody CreateOrUpdateComment createOrUpdateComment,
+                           Authentication authentication) {
+        commentService.addComment(adId, createOrUpdateComment, authentication);
     }
 
+    //Удаление комментария
     @DeleteMapping("/{adId}/comments/{commentId}")
-    public ResponseEntity<Comment> deleteComment(Authentication authentication, @PathVariable int adId, @PathVariable int commentId) {
-//        return commentService.deleteComment(authentication, adId, commentId);
-        return null;
+    public void deleteComment(@PathVariable("adId") Long adId,
+                              @PathVariable("commentId") Long commentId,
+                              Authentication authentication) {
+        commentService.deleteComment(adId,commentId, authentication);
     }
 
-    @PatchMapping("/{adId}/comments/{commentId}")
-    public Comment updateComment(Authentication authentication, @PathVariable int adId, @PathVariable int commentId, @RequestBody CreateOrUpdateComment createOrUpdateComment) {
-//        return commentService.updateComment(authentication, adId, commentId, createOrUpdateComment);
-        return null;
+    //Обновление комментария
+    @PutMapping("/{adId}/comments/{commentId}")
+    public void updateComment(@PathVariable("adId") Long adId,
+                              @PathVariable("commentId") Long commentId,
+                              @RequestBody CreateOrUpdateComment createOrUpdateComment,
+                              Authentication authentication) {
+        commentService.updateComment(adId,commentId, createOrUpdateComment,authentication);
     }
 }

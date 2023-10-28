@@ -1,9 +1,11 @@
 package ru.skypro.homework.mapper;
 
+import org.springframework.stereotype.Service;
 import ru.skypro.homework.dto.comment.CommentDTO;
 import ru.skypro.homework.dto.comment.CreateOrUpdateComment;
 import ru.skypro.homework.entity.Comment;
 
+@Service
 public class CommentMapper {
 
     public Comment fromCommentDTO(CommentDTO commentDTO) {

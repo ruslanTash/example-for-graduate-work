@@ -9,7 +9,7 @@ import ru.skypro.homework.dto.auth.Role;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
-    private Integer id;
+    private Long id;
     private String email;
     private String firstName;
     private String lastName;

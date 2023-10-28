@@ -15,11 +15,11 @@ import javax.persistence.*;
 @Entity
 public class Ad {
     @Id
-    private Integer pk;
+    private Long pk;
     private String image;
     @Min(0)
     @Max(1000000)
-    private int price;
+    private Integer price;
     @Size(min = 4, max = 32)
     private String title;
     @Size(min = 8, max = 64)

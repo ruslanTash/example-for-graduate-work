@@ -1,5 +1,6 @@
 package ru.skypro.homework.mapper;
 
+import org.springframework.stereotype.Service;
 import ru.skypro.homework.dto.ad.AdDTO;
 import ru.skypro.homework.dto.ad.CreateOrUpdateAd;
 import ru.skypro.homework.dto.ad.ExtendedAd;
@@ -7,7 +8,7 @@ import ru.skypro.homework.dto.auth.Login;
 import ru.skypro.homework.entity.Ad;
 
 
-
+@Service
 public class AdMapper {
     public Ad fromAdDTO(AdDTO atDdo) {
         Ad ad = new Ad();

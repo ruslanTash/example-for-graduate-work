@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +16,7 @@ public class CreateOrUpdateAd {
     private String title;
     @Min(0)
     @Max(1000000)
-    private int price;
+    private Integer price;
     @Size(min = 8, max = 64)
     private String description;
 }
