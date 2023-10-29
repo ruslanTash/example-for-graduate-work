@@ -36,7 +36,11 @@ public class AdServiceImpl implements AdService {
 
     @Override
     public Ads getAllAds() {
-        return new Ads(adsRepository.findAll());
+        ArrayList<Ad> adList = (ArrayList<Ad>) adsRepository.findAll();
+        ArrayList<AdDTO> adDTOList = (ArrayList<AdDTO>) adList.stream()
+        .map(mapper::toAdDTO).toList();
+
+        return new Ads(adDTOList);
     }
 
     @Override
@@ -93,7 +97,12 @@ public class AdServiceImpl implements AdService {
     @Override
     public Ads getAdsMe(Authentication authentication) {
         Long userId = getUser(authentication).getId();
-        return new Ads(new ArrayList<>(adsRepository.findAdsByUserId(userId)));
+
+        ArrayList<Ad> adList = (ArrayList<Ad>) adsRepository.findAdsByUserId(userId);
+        ArrayList<AdDTO> adDTOList = (ArrayList<AdDTO>) adList.stream()
+                .map(mapper::toAdDTO).toList();
+
+        return new Ads(new ArrayList<>(adDTOList));
     }
 
     @Override

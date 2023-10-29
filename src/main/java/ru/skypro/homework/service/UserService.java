@@ -7,6 +7,8 @@ import ru.skypro.homework.dto.user.NewPassword;
 import ru.skypro.homework.dto.user.UpdateUser;
 import ru.skypro.homework.dto.user.UserDTO;
 
+import java.io.IOException;
+
 public interface UserService {
     ResponseEntity<?> setPassword(Authentication authentication, NewPassword newPassword);
 
@@ -14,5 +16,5 @@ public interface UserService {
 
     UpdateUser updateUser(Authentication authentication, UpdateUser updateUser);
 
-    ResponseEntity<?> updateImage(Authentication authentication, MultipartFile photo);
+    ResponseEntity<?> updateImage(Authentication authentication, MultipartFile photo) throws IOException;
 }

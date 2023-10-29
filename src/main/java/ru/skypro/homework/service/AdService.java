@@ -15,10 +15,10 @@ public interface AdService {
 
     ExtendedAd getAds(long id, Authentication authentication);
 
-    //    @PreAuthorize("principal.admin or #username == authentication.principal.username")
+        @PreAuthorize("principal.admin or #username == authentication.principal.username")
     void removeAd (long id, Authentication authentication);
 
-    //    @PreAuthorize("principal.admin or #username == authentication.principal.username")
+        @PreAuthorize("principal.admin or #username == authentication.principal.username")
     AdDTO updateAds(long id, CreateOrUpdateAd updateAd, Authentication authentication);
 
     Ads getAdsMe(Authentication authentication);

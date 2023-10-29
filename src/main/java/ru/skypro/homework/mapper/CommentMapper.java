@@ -20,7 +20,7 @@ public class CommentMapper {
     public CommentDTO toCommentDTO(Comment comment) {
         CommentDTO commentDTO = new CommentDTO();
         commentDTO.setPk(comment.getPk());
-        commentDTO.setAuthorImage(comment.getUser().getImage());
+        commentDTO.setAuthorImage(comment.getUser().getImage().getImagePath());
         commentDTO.setAuthorFirstName(comment.getUser().getFirstName());
         commentDTO.setCreatedAt(comment.getCreatedAt());
         commentDTO.setText(comment.getText());

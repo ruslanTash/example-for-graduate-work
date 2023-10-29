@@ -19,9 +19,6 @@ import ru.skypro.homework.service.UserService;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UsersController {
-    //    private UserService userService;
-//    private final UserMapper userMapper;
-//    private final UserRepository userRepository;
     private final UserService userService;
 
     //   Обновление пароля

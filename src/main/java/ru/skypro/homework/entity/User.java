@@ -29,7 +29,13 @@ public class User {
     private String phone;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private String image;
+
+    @OneToOne
+    @JoinColumn (name = "image_id", insertable=false, updatable=false)
+    private Image image;
+
+    @Column (name = "image_id")
+    private Long avatarId;
 
 
 }

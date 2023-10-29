@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Ads {
     private Integer count;
-    private List<Ad> results;
+    private List<AdDTO> results;
 
-    public Ads(List<Ad> results) {
+    public Ads(List<AdDTO> results) {
         this.count = results.size();
         this.results = results;
     }
