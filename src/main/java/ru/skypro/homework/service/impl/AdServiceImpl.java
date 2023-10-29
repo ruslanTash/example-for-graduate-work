@@ -23,9 +23,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -50,7 +47,7 @@ public class AdServiceImpl implements AdService {
 
         Ad ad = mapper.fromCreateOrUpdate(createAd);
 
-        String uploadDir = "image.upload.directory=images/";
+        String uploadDir = "C:/Users/rusla/OneDrive/Изображения/";
         File directory = new File(uploadDir);
         if (!directory.exists()) {
             directory.mkdirs();
